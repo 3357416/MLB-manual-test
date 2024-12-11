@@ -1,0 +1,580 @@
+function RASHres()
+{
+  SetTestName("RASH short test");
+  $Name = "roofAndStandHall";
+  
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\rash.jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $roofAndStandHall = "roofAndStandHall pin 10 = " +$measure + " " + $measUnit;
+   UpdateStatus($roofAndStandHall)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+function PlatfomPowres()
+{
+   SetTestName("PlatformPower short test");
+  
+  $Name = "PlatformPower";
+  $Pin = " Pin 3";
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+function DoorLatchres()
+{
+  SetTestName("DoorLatch short test");
+  
+  
+  $Name = "DoorLatch";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+  // **********************************************************************************************
+// **********************************************************************************************
+function UserBoardPowres()
+{
+  SetTestName("UserBoardPow short test");
+  
+  $Name = "UserBoardPow";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+  
+  function IntakeFanres()
+{
+  SetTestName("IntakeFan short test");
+  
+  $Name = "IntakeFan";
+  $Pin = "3";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function TecPowres()
+{
+  SetTestName("TecPow short test");
+  
+  $Name = "TecPow";
+  $Pin = "2";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function PlatformHallres()
+{
+  SetTestName("PlatformHall short test");
+  
+  $Name = "PlatformHall";
+  $Pin = "1";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+   // **********************************************************************************************
+// **********************************************************************************************
+  
+  function PerimeterEarHeaterres()
+{
+  SetTestName("PerimeterEarHeater short test");
+  
+  $Name = "PerimeterEarHeater";
+  $Pin = "3";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+  
+  function PerimeterLedres()
+{
+  SetTestName("PerimeterLed short test");
+  
+  $Name = "PerimeterLed";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function DrainHoleres()
+{
+  SetTestName("DrainHole short test");
+  
+  $Name = "DrainHole";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofHeaterres()
+{
+  SetTestName("RoofHeater short test");
+  
+  $Name = "RoofHeater";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofNtcInspectionres()
+{
+  SetTestName("RoofNtcInspection short test");
+  
+  $Name = "RoofNtcInspection";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofSensorsP5res()
+{
+  SetTestName("RoofSensors short test");
+  
+  $Name = "RoofSensorsP5";
+  $Pin = "5";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofSensorsP8res()
+{
+  SetTestName("RoofSensors short test");
+  
+  $Name = "RoofSensorsP5";
+  $Pin = "8";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+  
+  function Shieldres()
+{
+  SetTestName("Shield short test");
+  
+  $Name = "Shield";
+  $Pin = "";
+  //$Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadImpedance();
+  $measName = $Name; // Nombre de la medición.
+  $measUnit = "omhs"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  1000;
+  $upperLimit = 9.9E+37;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + $Pin + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+

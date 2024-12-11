@@ -1,0 +1,140 @@
+// *************************Jail Test Script File************************************************
+// Product:				
+// Customer:			
+// Software Name:		
+// Author:              
+// **********************************************************************************************
+// **********************************************************************************************
+
+#include<"C:\\JabilTest\\scripts\\instruments_functions.jts">
+#include<"C:\\JabilTest\\scripts\\init.jts">
+#include<"C:\\JabilTest\\scripts\\MLB\\resTests.jts">
+#include<"C:\\JabilTest\\scripts\\MLB\\vdcTests.jts">
+#include<"C:\\JabilTest\\scripts\\CSV_report_generator.jts">
+
+
+
+
+// MAIN TEST ROUTINE
+// 
+// **********************************************************************************************
+ $headersCSV = "";
+ $MeasuringsCSV = "";
+//PSU tests
+call Header();
+
+call RASHres();
+call PlatfomPowres();
+call DoorLatchres();
+call UserBoardPowres();
+call IntakeFanres();
+call TecPowres();
+call PlatformHallres();
+call PerimeterEarHeaterres();
+call DrainHoleres();
+call RoofHeaterres();
+call RoofNtcInspectionres();
+call RoofSensorsP5res();
+call Shieldres();
+
+call PSUSetRemoteMode();
+call PSUOutputOn();
+call PSUVoltTest();
+call PSUCurrTest();
+
+//vdc Tests
+call RASHvdc();
+call PlatfomPowvdc();
+call DoorLatchvdc();
+call UserBoardPowvdc();
+call IntakeFanvdc();
+call TecPowvdc();
+call PlatformHallvdc();
+call PerimeterEarHeatervdc();
+call DrainHolevdc();
+call RoofHeatervdc();
+call RoofNtcInspectionvdc();
+call RoofSensorsP5vdc();
+call RoofSensorsP8vdc();
+
+
+
+call PSUOutputOff();
+
+ UpdateStatus ($headersCSV);
+ UpdateStatus ($MeasuringsCSV);
+
+call CSV_generator();
+
+
+
+$ElapsedTime = GetElapsedTime(); 
+
+UpdateStatus($ElapsedTime);
+
+
+
+End;
+
+// 
+// **********************************************************************************************
+
+$FileContentsHeaders = Array1DCreate("String", 1); 
+
+// 
+// **********************************************************************************************
+function Header()
+{
+  
+  $outString = "Serial Number: " + $SerialNumber;
+  UpdateStatus($outString);
+  
+  $format = "MM/dd/yyyy h:mm:ss.ffff tt";
+
+  $time = GetSystemTimeWithFormat($format);
+
+  // Print out the time.
+  $outString = "Date and time: " + $time;
+  UpdateStatus($outString);
+
+  return;
+}
+
+// **********************************************************************************************
+// **********************************************************************************************
+
+function operatorPrompt()
+{
+
+      UpdateStatus("operator prompt"); // Muestra el nombre de la prueba en el estado.
+
+    ///////////////////OPERATOR PROMPT UUT//////////////////
+  
+    
+    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
+
+    //OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
+    
+  
+    ///////////////////Counter//////////////////
+  
+    //$ImagePath = New("String", $GraphicFilePath);
+    //OperatorCountDownTimer("Midiendo en:", 5, true); 
+  
+    //ShowDelayPicture($ImagePath,1200,700,100,5);
+  
+    ///////////////////Measure//////////////////
+  
+    UpdateStatus("measuring"); // Muestra el nombre de la prueba en el estado.
+    
+    return;
+  }
+  
+  
+// **********************************************************************************************
+// **********************************************************************************************
+
+  
+

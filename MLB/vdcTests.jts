@@ -1,0 +1,542 @@
+function RASHvdc()
+{
+  SetTestName("RASH vdc test");
+  
+  $Name = "roofAndStandHall";
+  
+  
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\rash.jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+  $measUnit = "volts"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  3;
+  $upperLimit = 3.6;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+  
+
+   $roofAndStandHall = "roofAndStandHall pin 10 = " +$measure + " " + $measUnit;
+   UpdateStatus($roofAndStandHall)
+    
+  
+  return; 
+  
+  }
+
+// **********************************************************************************************
+// **********************************************************************************************
+function PlatfomPowvdc()
+{
+   SetTestName("PlatformPower vdc test");
+  
+  $Name = "PlatformPower";
+  $Pin = " Pin 3";
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+  $measUnit = "volts"; // Unidad de la medición.
+  $parametric = true; // Indica que la medición es paramétrica.
+  $failOnLimits = true;
+  $lowerLimit =  21.6;
+  $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+function DoorLatchvdc()
+{
+  SetTestName("DoorLatch vdc test");
+  
+  
+  $Name = "DoorLatch";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+    
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+function UserBoardPowvdc()
+{
+  SetTestName("UserBoardPow vdc test");
+  
+  $Name = "UserBoardPow";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function IntakeFanvdc()
+{
+  SetTestName("IntakeFan vdc test");
+  
+  $Name = "IntakeFan";
+  $Pin = "3";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+ call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function TecPowvdc()
+{
+  SetTestName("TecPow short test");
+  
+  $Name = "TecPow";
+  $Pin = "2";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+// **********************************************************************************************
+// **********************************************************************************************
+  
+  function PlatformHallvdc()
+{
+  SetTestName("PlatformHall vdc test");
+  
+  $Name = "PlatformHall";
+  $Pin = "1";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+  $lowerLimit =  3;
+  $upperLimit = 3.6;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+   // **********************************************************************************************
+// **********************************************************************************************
+  
+  function PerimeterEarHeatervdc()
+{
+  SetTestName("PerimeterEarHeater vdc test");
+  
+  $Name = "PerimeterEarHeater";
+  $Pin = "3";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.;
+   $upperLimit = 26.2;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+// **********************************************************************************************
+// **********************************************************************************************
+  
+  function PerimeterLedvdc()
+{
+  SetTestName("PerimeterLed vdc test");
+  
+  $Name = "PerimeterLed";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function DrainHolevdc()
+{
+  SetTestName("DrainHole vdc test");
+  
+  $Name = "DrainHole";
+  $Pin = "6";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.;
+   $upperLimit = 26.2;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofHeatervdc()
+{
+  SetTestName("RoofHeater vdc test");
+  
+  $Name = "RoofHeater";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.;
+   $upperLimit = 26.2;
+  
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofNtcInspectionvdc()
+{
+  SetTestName("RoofNtcInspection vdc test");
+  
+  $Name = "RoofNtcInspection";
+  $Pin = "4";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  4.5;
+   $upperLimit = 5.5;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofSensorsP5vdc()
+{
+  SetTestName("RoofSensors vdc test");
+  
+  $Name = "RoofSensorsP5";
+  $Pin = "5";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  4.5;
+   $upperLimit = 5.5;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+  
+  function RoofSensorsP8vdc()
+{
+  SetTestName("RoofSensors vdc test");
+  
+  $Name = "RoofSensorsP5";
+  $Pin = "8";
+  $Pin = " Pin " + $Pin;
+  $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
+  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+  
+  call operatorPrompt();
+
+  
+  call DMMReadVdc();
+  $measName = $Name + "VDC"; // Nombre de la medición.
+   $measUnit = "volts"; // Unidad de la medición.
+   $parametric = true; // Indica que la medición es paramétrica.
+   $failOnLimits = true;
+   $lowerLimit =  21.6;
+   $upperLimit = 26.4;
+  
+   
+
+
+   RecordMeasurementWithLimits($measName, $measure, $measUnit, $parametric, $lowerLimit, $upperLimit, $failOnLimits); // Registra la medición y verifica si está dentro de los límites.
+   $MeasureCSV = $measure + " " + $measUnit;
+   call CSV_data_gather();
+
+   $Result = $Name + " " + $Pin + " = "  + $measure + " " + $measUnit;
+   UpdateStatus($Result)
+    
+  
+  return; 
+  
+  }
