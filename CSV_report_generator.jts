@@ -1,0 +1,21 @@
+function CSV_data_gather()
+{
+  $headersCSV = $headersCSV + $Name + ",";
+  $MeasuringsCSV = $MeasuringsCSV + $MeasureCSV + ",";
+  return;
+  }
+  
+  function CSV_generator()
+  {
+    $FileName = $SerialNumber;
+    $FilePath = "C:\\JabilTest\\logs\\csv\\" + $FileName + ".csv";
+    $FileContents =  $headersCSV + "\n" + $MeasuringsCSV;
+    
+    $CreateFile = FileWriteOpen($FilePath, "NEW"); 
+
+	  FileWrite($CreateFile, $FileContents); //Sobreescribe el arrchivo de la ase de datos de las MAC addresses con la string del contenido actualizado.
+	  FileWriteClose($CreateFile); // cierra el escritor de archivos
+    
+    
+    return;
+    }
