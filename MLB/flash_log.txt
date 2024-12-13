@@ -1,0 +1,7 @@
+Flashing log - Fri 12/13/2024  8:24:55.41 
+Connecting to device... 
+The system cannot find the path specified.
+FAIL: Unable to connect to device. 
+Disconnecting device... 
+The system cannot find the path specified.
+FAIL: Disconnection failed. 

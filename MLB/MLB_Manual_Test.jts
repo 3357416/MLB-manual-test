@@ -6,11 +6,13 @@
 // **********************************************************************************************
 // **********************************************************************************************
 
-#include<"C:\\JabilTest\\scripts\\instruments_functions.jts">
+#include<"C:\\JabilTest\\scripts\\MLB\\MLBInstrumentsFunctions.jts">
 #include<"C:\\JabilTest\\scripts\\init.jts">
 #include<"C:\\JabilTest\\scripts\\MLB\\resTests.jts">
 #include<"C:\\JabilTest\\scripts\\MLB\\vdcTests.jts">
 #include<"C:\\JabilTest\\scripts\\CSV_report_generator.jts">
+#include<"C:\\JabilTest\\scripts\\antitester\\Mod_Mes.jts">
+#include<"C:\\JabilTest\\scripts\\MLB\\FlashMCU.jts">
 
 
 
@@ -18,11 +20,18 @@
 // MAIN TEST ROUTINE
 // 
 // **********************************************************************************************
- $headersCSV = "";
+$headersCSV = "";
  $MeasuringsCSV = "";
 //PSU tests
+
 call Header();
 
+call DMMSetRemoteMode();
+call PSUSetRemoteMode();
+
+call preTestSetup();
+
+//Short tests from resTests.jts
 call RASHres();
 call PlatfomPowres();
 call DoorLatchres();
@@ -37,10 +46,26 @@ call RoofNtcInspectionres();
 call RoofSensorsP5res();
 call Shieldres();
 
-call PSUSetRemoteMode();
+call preProgConnectPSU();
+
+//Psu functions from MLBinstrumentFunctions.jts
+
 call PSUOutputOn();
 call PSUVoltTest();
 call PSUCurrTest();
+call PSUOutputOff();
+
+call preProgConnectPogramer();
+Sleep(3);
+call PSUOutputOn();
+
+//From FlashMCU.jts
+
+call FlashingMCU();
+call PSUOutputOff();
+Sleep(3);
+OperatorPrompt("Desconecte el programador", "OK");
+call PSUOutputOn();
 
 //vdc Tests
 call RASHvdc();
@@ -58,19 +83,13 @@ call RoofSensorsP5vdc();
 call RoofSensorsP8vdc();
 
 
-
 call PSUOutputOff();
-
- UpdateStatus ($headersCSV);
- UpdateStatus ($MeasuringsCSV);
-
+call releasePSU();
+call releaseDMM();
 call CSV_generator();
 
 
 
-$ElapsedTime = GetElapsedTime(); 
-
-UpdateStatus($ElapsedTime);
 
 
 
@@ -85,6 +104,11 @@ $FileContentsHeaders = Array1DCreate("String", 1);
 // **********************************************************************************************
 function Header()
 {
+  UpdateStatus("**********************************************************************************************");
+  UpdateStatus("Skydio")
+  UpdateStatus("MLB Manual Test v1")
+  UpdateStatus("**********************************************************************************************");
+  UpdateStatus("");
   
   $outString = "Serial Number: " + $SerialNumber;
   UpdateStatus($outString);
@@ -96,6 +120,8 @@ function Header()
   // Print out the time.
   $outString = "Date and time: " + $time;
   UpdateStatus($outString);
+  UpdateStatus("");
+  UpdateStatus("**********************************************************************************************");
 
   return;
 }
@@ -105,15 +131,12 @@ function Header()
 
 function operatorPrompt()
 {
-
-      UpdateStatus("operator prompt"); // Muestra el nombre de la prueba en el estado.
-
     ///////////////////OPERATOR PROMPT UUT//////////////////
   
     
-    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
-    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
-    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
+   // $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    //$WindowHeight = 720; // Define la altura de la ventana de la imagen.
+   // $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
 
     //OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
     
@@ -123,11 +146,11 @@ function operatorPrompt()
     //$ImagePath = New("String", $GraphicFilePath);
     //OperatorCountDownTimer("Midiendo en:", 5, true); 
   
-    //ShowDelayPicture($ImagePath,1200,700,100,5);
+   // ShowDelayPicture($ImagePath,1200,700,100,5);
   
     ///////////////////Measure//////////////////
   
-    UpdateStatus("measuring"); // Muestra el nombre de la prueba en el estado.
+   // UpdateStatus("measuring"); // Muestra el nombre de la prueba en el estado.
     
     return;
   }
@@ -135,6 +158,70 @@ function operatorPrompt()
   
 // **********************************************************************************************
 // **********************************************************************************************
+function preTestSetup()
+{
+    $PromptString = "Conecte la punta NEGRA del multimetro a la terminal de tierra";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\PTSground.jpg";
+    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
 
+    OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
   
+  
+  
+    $PromptString = "Instale el arnes en el conector de E-Stop";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\eStopHarness.jpg";
+    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
 
+    OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
+  
+  return;
+}
+
+// **********************************************************************************************
+// **********************************************************************************************
+
+function preProgConnectPSU()
+{
+   $PromptString = "Conecte la unidad a la fuente por el conector indicado en la imagen:";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\DUT2PSU.jpg";
+    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
+
+    OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
+  
+  return;
+  }
+  
+  // **********************************************************************************************
+// **********************************************************************************************
+
+  function preProgConnectPogramer()
+  {
+    
+     $PromptString = "Conecte la unidad a la fuente por el conector indicado en la imagen:";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\conProg.jpg";
+    $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+    $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+    $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
+
+    OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
+  
+    
+    return;
+    }
+    
+    
+    
+    
+    
+    
+// **********************************************************************************************
+// **********************************************************************************************
+   
+    
+    

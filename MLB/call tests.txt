@@ -1,0 +1,64 @@
+$headersCSV = "";
+ $MeasuringsCSV = "";
+//PSU tests
+
+call Header();
+
+call preTestSetup();
+
+//Short tests from resTests.jts
+call RASHres();
+call PlatfomPowres();
+call DoorLatchres();
+call UserBoardPowres();
+call IntakeFanres();
+call TecPowres();
+call PlatformHallres();
+call PerimeterEarHeaterres();
+call DrainHoleres();
+call RoofHeaterres();
+call RoofNtcInspectionres();
+call RoofSensorsP5res();
+call Shieldres();
+
+call preProgConnectPSU();
+
+//Psu functions from MLBinstrumentFunctions.jts
+call PSUSetRemoteMode();
+call PSUOutputOn();
+call PSUVoltTest();
+call PSUCurrTest();
+call PSUOutputOff();
+
+call preProgConnectPogramer();
+call PSUOutputOn();
+
+//From FlashMCU.jts
+
+call FlashingMCU();
+call PSUOutputOff();
+Sleep(3);
+OperatorPrompt("Desconecte el programador", "OK");
+call PSUOutputOn();
+
+//vdc Tests
+call RASHvdc();
+call PlatfomPowvdc();
+call DoorLatchvdc();
+call UserBoardPowvdc();
+call IntakeFanvdc();
+call TecPowvdc();
+call PlatformHallvdc();
+call PerimeterEarHeatervdc();
+call DrainHolevdc();
+call RoofHeatervdc();
+call RoofNtcInspectionvdc();
+call RoofSensorsP5vdc();
+call RoofSensorsP8vdc();
+
+call PSUOutputOff();
+
+UpdateStatus ($headersCSV);
+UpdateStatus ($MeasuringsCSV);
+
+call CSV_generator();

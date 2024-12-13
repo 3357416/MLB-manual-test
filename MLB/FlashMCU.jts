@@ -1,0 +1,58 @@
+function FlashingMCU()
+{
+   SetTestName("FlashingMCU");
+    $Name = "FlashingMCU";
+    //  $Process = CreateProcess($workingDirectory, $program, $programArguments, $showWindow);
+    $workingDirectory = "C:\\JabilTest\\scripts\\MLB";
+    $program =  "C:\\JabilTest\\scripts\\MLB\\stmflash.bat";
+    $programArguments = "";
+    $showWindow = true;
+    
+    $Flash = CreateProcess($workingDirectory, $program, $programArguments, $showWindow);
+    RedirectProcessStdIn($Flash);
+    RedirectProcessStdOut($Flash);
+    $ExitCode = StartProcess($Flash, true);
+    Sleep(3);
+    
+    $fileName = "C:\\JabilTest\\scripts\\MLB\\flash_log.txt";
+
+    $FLashLog = FileReadOpen($fileName);
+  
+    $ValueToFind = "FAIL";
+    $FileContents = FileReadAllText($fileName); //Guarda todo el contenido del archivo en una variable
+    //UpdateStatus($FileContents);
+  
+    $FAIL_Found = StringContains($FileContents,$ValueToFind); //Valida que el serial number no este en uso, retorna un booleano
+
+    
+ 
+  
+   $measName = "Flashing MCU";
+   $measUnit = "Bool";
+   $parametric = true;
+      if($FAIL_Found == true) 
+	{
+	  $measurement = "FAIL";
+	  $passFail = false;
+	  UpdateStatus("Flashing MCU has Failed");
+	}
+	
+    if($FAIL_Found == false) 
+	{
+	  $measurement = "PASS";
+	  $passFail = true;
+	  UpdateStatus("Flashing MCU was Succesful");
+	}
+   
+    $MeasureCSV = $measurement;
+    RecordMeasurementPassFail($measName, $measurement, $measUnit, $parametric, $passFail);
+    FileReadClose($FLashLog);
+    
+    call CSV_data_gather();
+
+  
+  return; 
+  
+  }
+
+
