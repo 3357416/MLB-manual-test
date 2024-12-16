@@ -1,7 +1,123 @@
-Flashing log - Fri 12/13/2024  8:24:55.41 
+Flashing log - Fri 12/13/2024 13:58:38.44 
 Connecting to device... 
-The system cannot find the path specified.
-FAIL: Unable to connect to device. 
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 38FF6A063050453426571643
+ST-LINK FW  : V2J29S7
+Board       : --
+Voltage     : 3.25V
+SWD freq    : 4000 KHz
+Connect mode: Normal
+Reset mode  : Software reset
+Device ID   : 0x419
+Revision ID : Rev 5/B
+Device name : STM32F42xxx/F43xxx
+Flash size  : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x91
+
+PASS: Connected to device. 
+Validating connection... 
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 38FF6A063050453426571643
+ST-LINK FW  : V2J29S7
+Board       : --
+Voltage     : 3.25V
+SWD freq    : 4000 KHz
+Connect mode: Normal
+Reset mode  : Software reset
+Device ID   : 0x419
+Revision ID : Rev 5/B
+Device name : STM32F42xxx/F43xxx
+Flash size  : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x91
+
+PASS: Connection validated. 
+Loading binary file... 
+PASS: Binary file loaded: "C:\JabilTest\scripts\MLB\g47_mlb.bin" 
+Flashing and verifying device... 
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 38FF6A063050453426571643
+ST-LINK FW  : V2J29S7
+Board       : --
+Voltage     : 3.25V
+SWD freq    : 4000 KHz
+Connect mode: Normal
+Reset mode  : Software reset
+Device ID   : 0x419
+Revision ID : Rev 5/B
+Device name : STM32F42xxx/F43xxx
+Flash size  : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x91
+
+
+
+Warning: No need to these parameters in verify command: "C:\JabilTest\scripts\MLB\g47_mlb.bin" 0x08000000
+Opening and parsing file: g47_mlb.bin
+
+
+Memory Programming ...
+  File          : g47_mlb.bin
+  Size          : 1.25 MB 
+  Address       : 0x08000000 
+
+
+Erasing memory corresponding to segment 0:
+Erasing internal memory sectors [0 17]
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%€€€€€€€ 14%€€€€€€€ 29%€€€€€€€ 43%€€€€€€€€ 58%€€€€€€€ 73%€€€€€€€ 87%€€€€€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:19.417
+
+
+
+Verifying ...
+
+
+Read progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+Download verified successfully 
+
+
+PASS: Flashing and verification successful. 
 Disconnecting device... 
-The system cannot find the path specified.
-FAIL: Disconnection failed. 
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 38FF6A063050453426571643
+ST-LINK FW  : V2J29S7
+Board       : --
+Voltage     : 3.27V
+SWD freq    : 4000 KHz
+Connect mode: Normal
+Reset mode  : Software reset
+Device ID   : 0x419
+Revision ID : Rev 5/B
+Device name : STM32F42xxx/F43xxx
+Flash size  : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x91
+
+
+MCU Reset
+
+Software reset is performed
+PASS: Disconnected. 
+All operations completed. 

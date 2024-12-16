@@ -142,7 +142,7 @@ function PSUVoltTest()
     IviGPIB_Write($PSUHandler, $command);
     Sleep(1);
     $measure = IviGPIB_Read($PSUHandler); // Leer la corriente configurada.
-      
+    $measure = $measure * 1000;
     $measName = $Name; // Nombre de la medición.
     $measUnit = "mA"; // Unidad de la medición.
     $parametric = true; // Indica que la medición es paramétrica.

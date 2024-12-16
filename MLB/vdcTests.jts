@@ -6,7 +6,7 @@ function RASHvdc()
   
   
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\rash.jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\rash.jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -44,7 +44,7 @@ function PlatfomPowvdc()
   $Name = "PlatformPower";
   $Pin = " Pin 3";
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -54,8 +54,8 @@ function PlatfomPowvdc()
   $measUnit = "volts"; // Unidad de la medición.
   $parametric = true; // Indica que la medición es paramétrica.
   $failOnLimits = true;
-  $lowerLimit =  21.6;
-  $upperLimit = 26.4;
+  $lowerLimit =  21.5;
+  $upperLimit = 22.5;
   
    
 
@@ -83,7 +83,7 @@ function DoorLatchvdc()
   $Pin = "6";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -122,7 +122,7 @@ function UserBoardPowvdc()
   $Pin = "6";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -161,7 +161,7 @@ function UserBoardPowvdc()
   $Pin = "3";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -200,7 +200,7 @@ function UserBoardPowvdc()
   $Pin = "2";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -238,7 +238,7 @@ function UserBoardPowvdc()
   $Pin = "1";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -277,7 +277,7 @@ function UserBoardPowvdc()
   $Pin = "3";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -287,8 +287,8 @@ function UserBoardPowvdc()
    $measUnit = "volts"; // Unidad de la medición.
    $parametric = true; // Indica que la medición es paramétrica.
    $failOnLimits = true;
-   $lowerLimit =  21.;
-   $upperLimit = 26.2;
+   $lowerLimit =  21.5;
+   $upperLimit = 22.5;
   
    
 
@@ -316,7 +316,7 @@ function UserBoardPowvdc()
   $Pin = "4";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -355,7 +355,7 @@ function UserBoardPowvdc()
   $Pin = "6";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -365,8 +365,8 @@ function UserBoardPowvdc()
    $measUnit = "volts"; // Unidad de la medición.
    $parametric = true; // Indica que la medición es paramétrica.
    $failOnLimits = true;
-   $lowerLimit =  21.;
-   $upperLimit = 26.2;
+     $lowerLimit =  21.5;
+   $upperLimit = 22.5;
   
    
 
@@ -394,7 +394,7 @@ function UserBoardPowvdc()
   $Pin = "4";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -404,9 +404,8 @@ function UserBoardPowvdc()
    $measUnit = "volts"; // Unidad de la medición.
    $parametric = true; // Indica que la medición es paramétrica.
    $failOnLimits = true;
-   $lowerLimit =  21.;
-   $upperLimit = 26.2;
-  
+    $lowerLimit =  21.5;
+   $upperLimit = 22.5;
   
    
 
@@ -435,7 +434,7 @@ function UserBoardPowvdc()
   $Pin = "4";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -474,7 +473,7 @@ function UserBoardPowvdc()
   $Pin = "5";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 
@@ -513,7 +512,7 @@ function UserBoardPowvdc()
   $Pin = "8";
   $Pin = " Pin " + $Pin;
   $PromptString = "Coloque la punta roja del multimetro al pin indicado y la punta negra a tierra \n Presione la tecla ESPACIO para continuar"; // Mensaje para el operador.
-  $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
+ $GraphicFilePath ="C:\\JabilTest\\scripts\\MLB\\images\\" + $Name + ".jpg"; // Ruta del archivo de imagen a mostrar.
   
   call operatorPrompt();
 

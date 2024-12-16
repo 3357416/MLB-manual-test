@@ -26,7 +26,7 @@ $headersCSV = "";
 
 call Header();
 
-call DMMSetRemoteMode();
+//call DMMSetRemoteMode();
 call PSUSetRemoteMode();
 
 call preTestSetup();
@@ -44,7 +44,8 @@ call DrainHoleres();
 call RoofHeaterres();
 call RoofNtcInspectionres();
 call RoofSensorsP5res();
-call Shieldres();
+call RoofSensorsP8res();
+//call Shieldres();
 
 call preProgConnectPSU();
 
@@ -134,19 +135,19 @@ function operatorPrompt()
     ///////////////////OPERATOR PROMPT UUT//////////////////
   
     
-   // $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
-    //$WindowHeight = 720; // Define la altura de la ventana de la imagen.
-   // $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
+   $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
+   $WindowHeight = 720; // Define la altura de la ventana de la imagen.
+   $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
 
-    //OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
+    OperatorPicturePrompt($PromptString, $GraphicFilePath, $PictureMode, $WindowHeight, $WindowWidth); // Muestra la imagen y solicita la interacción del operador.
     
   
     ///////////////////Counter//////////////////
   
-    //$ImagePath = New("String", $GraphicFilePath);
+    $ImagePath = New("String", $GraphicFilePath);
     //OperatorCountDownTimer("Midiendo en:", 5, true); 
   
-   // ShowDelayPicture($ImagePath,1200,700,100,5);
+   ShowDelayPicture($ImagePath,1200,700,100,3);
   
     ///////////////////Measure//////////////////
   
@@ -161,7 +162,7 @@ function operatorPrompt()
 function preTestSetup()
 {
     $PromptString = "Conecte la punta NEGRA del multimetro a la terminal de tierra";
-    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\PTSground.jpg";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\images\\PTSground.jpg";
     $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
     $WindowHeight = 720; // Define la altura de la ventana de la imagen.
     $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
@@ -171,7 +172,7 @@ function preTestSetup()
   
   
     $PromptString = "Instale el arnes en el conector de E-Stop";
-    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\eStopHarness.jpg";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\images\\eStopHarness.jpg";
     $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
     $WindowHeight = 720; // Define la altura de la ventana de la imagen.
     $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
@@ -187,7 +188,7 @@ function preTestSetup()
 function preProgConnectPSU()
 {
    $PromptString = "Conecte la unidad a la fuente por el conector indicado en la imagen:";
-    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\DUT2PSU.jpg";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\images\\DUT2PSU.jpg";
     $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
     $WindowHeight = 720; // Define la altura de la ventana de la imagen.
     $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
@@ -204,7 +205,7 @@ function preProgConnectPSU()
   {
     
      $PromptString = "Conecte la unidad a la fuente por el conector indicado en la imagen:";
-    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\conProg.jpg";
+    $GraphicFilePath = "C:\\JabilTest\\scripts\\MLB\\images\\conProg.jpg";
     $PictureMode = "STRETCH"; // Define el modo de visualización de la imagen (centrado).
     $WindowHeight = 720; // Define la altura de la ventana de la imagen.
     $WindowWidth = 1200; // Define el ancho de la ventana de la imagen.
